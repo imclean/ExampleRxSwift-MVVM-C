@@ -16,6 +16,7 @@ platform :ios do
 
   desc "Description of what the lane does"
   lane :generate_ipa_develop do
+    increment_build_number
     scan(scheme: "BumpTestApp")
     gym(
       configuration: "Debug",
