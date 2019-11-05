@@ -1,0 +1,29 @@
+# update_fastlane
+
+fastlane_version "2.28.3"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    cocoapods
+  end
+
+  desc "Runs all the tests"
+  lane :tests do
+  	scan(scheme: "BumpTestApp")
+  end
+
+  desc "Description of what the lane does"
+  lane :generate_ipa_develop do
+    gym(
+      configuration: "Debug",
+      scheme: "BumpTestApp",
+      clean: true,
+      export_method: 'development',
+      output_directory: "~/Desktop", # Destination directory. Defaults to current directory.
+      output_name: "BumpTestApp.ipa",
+    )
+  end
+
+end
