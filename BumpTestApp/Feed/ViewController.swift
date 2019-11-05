@@ -20,10 +20,8 @@ class ViewController: UIViewController, StoryBoarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = []
-        self.title = NSLocalizedString("Gifs", comment: "Controller Title")
+        tableView.rowHeight = 220
         viewModel = ViewControllerViewModel()
-        
         viewModel?.errors
         .observeOn(MainScheduler.instance)
         .subscribe(onNext: { [weak self] (error) in
@@ -35,6 +33,9 @@ class ViewController: UIViewController, StoryBoarded {
             }
         })
         .disposed(by: disposeBag)
+        
+        self.edgesForExtendedLayout = []
+        self.title = NSLocalizedString("Gifs", comment: "Controller Title")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +52,8 @@ class ViewController: UIViewController, StoryBoarded {
     private func setupBinding(){
         tableView.register(UINib(nibName: "FeedViewCell", bundle: Bundle.main), forCellReuseIdentifier: "feedCell")
         
-        viewModel?.observableGifs.bind(to: tableView.rx.items(cellIdentifier: "feedCell", cellType: FeedViewCell.self)) { (row,gif,cell) in
-            cell.gif = gif
+        viewModel?.observableGifs.bind(to: tableView.rx.items(cellIdentifier: "feedCell", cellType: FeedViewCell.self)) { (_,gif,cell) in
+                cell.gif = gif
             }.disposed(by: disposeBag)
-        tableView.rowHeight = 250.0
     }
 }

@@ -28,6 +28,7 @@ class FeedViewCell: UITableViewCell {
             DispatchQueue.global(qos: .userInitiated).async {
                 if let data = cache.cachedResponse(for: request)?.data {
                     DispatchQueue.main.async { [weak self] in
+                        self?.webView.scrollView.isScrollEnabled = false
                         self?.webView!.load(data, mimeType: "image/gif", characterEncodingName: String(), baseURL:URL(string: (self?.gif.image.downsizedMedium.url)!)!)
                     }
                 } else {
@@ -36,6 +37,7 @@ class FeedViewCell: UITableViewCell {
                             let cachedData = CachedURLResponse(response: response, data: data)
                             cache.storeCachedResponse(cachedData, for: request)
                             DispatchQueue.main.async { [weak self] in
+                                self?.webView.scrollView.isScrollEnabled = false
                                 self?.webView!.load(data, mimeType: "image/gif", characterEncodingName: String(), baseURL:URL(string: (self?.gif.image.downsizedMedium.url)!)!)
                             }
                         }

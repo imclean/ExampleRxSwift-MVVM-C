@@ -33,7 +33,7 @@ struct Image: Codable {
     let downsizedMedium: GifFormat
 
     enum CodingKeys: String, CodingKey {
-        case downsizedMedium = "fixed_height_downsampled"
+        case downsizedMedium = "fixed_height"
     }
 }
 
