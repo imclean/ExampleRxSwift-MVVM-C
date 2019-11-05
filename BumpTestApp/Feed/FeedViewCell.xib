@@ -17,14 +17,14 @@
                 <subviews>
                     <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FWv-AL-FgP">
                         <rect key="frame" x="20" y="11" width="374" height="392"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <wkWebViewConfiguration key="configuration">
                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                             <wkPreferences key="preferences"/>
                         </wkWebViewConfiguration>
                     </wkWebView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="FWv-AL-FgP" firstAttribute="top" secondItem="igq-Bt-aSP" secondAttribute="top" constant="11" id="Aur-9q-ymw"/>
                     <constraint firstItem="FWv-AL-FgP" firstAttribute="centerY" secondItem="igq-Bt-aSP" secondAttribute="centerY" id="ICa-Gi-yhg"/>
